@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>College Login</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 80px;
+  background: lightblue;
+}
+.box {
+  background: white;
+  padding: 25px;
+  margin: auto;
+  width: 280px;
+  border-radius: 10px;
+}
+input, select, button {
+  margin: 10px;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>College Login</h2>
+
+<input id="user" placeholder="Username"><br>
+<input id="pass" type="password" placeholder="Password"><br>
+
+<select id="role">
+  <option>Student</option>
+  <option>Admin</option>
+</select><br>
+
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
+
+<script>
+function login() {
+  let u = document.getElementById("user").value;
+  let p = document.getElementById("pass").value;
+  let r = document.getElementById("role").value;
+
+  localStorage.setItem("username", u);
+  localStorage.setItem("role", r);
+
+  if (u == "admin" && p == "1234" && r == "Admin") {
+    document.getElementById("msg").innerHTML = "Welcome Admin!";
+  }
+  else if (u == "student" && p == "1234" && r == "Student") {
+    document.getElementById("msg").innerHTML = "Welcome Student!";
+  }
+  else {
+    document.getElementById("msg").innerHTML = "Invalid Login!";
+  }
+}
+</script>
+
+</body>
+</html>
